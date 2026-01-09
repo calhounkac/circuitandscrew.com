@@ -1,292 +1,298 @@
-<style>
-  :root{
-    /* Logo-theme palette */
-    --bg:#07080a;              /* deep black */
-    --bg2:#0c1017;             /* slightly lighter panel */
-    --card:#0f1520;            /* card background */
-    --text:#eaf1ff;            /* near-white with blue tint */
-    --muted:#b3c2dd;           /* cool gray-blue */
-    --line:rgba(255,255,255,.10);
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Circuit & Screw | Property Solutions</title>
+  <meta name="description" content="Circuit & Screw — professional tech installs, low-voltage wiring, and property solutions." />
 
-    /* Brand blues (match your logo) */
-    --blue:#1f6dff;            /* electric blue */
-    --blue2:#0c3fa8;           /* deep blue */
-    --blueGlow:rgba(31,109,255,.25);
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-    /* Metallic accent */
-    --steel:#9aa6b8;
-    --steel2:#5f6b7a;
+  <style>
+    :root{
+      --bg:#07080a;
+      --panel:#0f1520;
+      --text:#eaf1ff;
+      --muted:#b3c2dd;
+      --line:rgba(255,255,255,.1);
 
-    /* Keep your orange buttons */
-    --accent:#ff7a18;
-    --accent2:#ffb26b;
+      --blue:#1f6dff;
+      --accent:#ff7a18;
+      --accent2:#ffb26b;
 
-    --shadow: 0 14px 36px rgba(0,0,0,.45);
-    --radius: 18px;
-    --max: 1120px;
-  }
+      --radius:18px;
+      --shadow:0 16px 40px rgba(0,0,0,.45);
+      --max:1120px;
+    }
 
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;
-    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    color:var(--text);
-    background:
-      radial-gradient(900px 520px at 18% 12%, rgba(31,109,255,.18), transparent 55%),
-      radial-gradient(650px 480px at 90% 30%, rgba(180,180,180,.08), transparent 58%),
-      linear-gradient(180deg, var(--bg), #050608 70%);
-    line-height:1.55;
-  }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 15% 10%, rgba(31,109,255,.18), transparent 55%),
+        linear-gradient(180deg,var(--bg),#050608 70%);
+    }
 
-  a{color:inherit; text-decoration:none}
-  .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 18px}
 
-  /* Header */
-  header{
-    position:sticky; top:0; z-index:10;
-    backdrop-filter: blur(10px);
-    background: rgba(7,8,10,.72);
-    border-bottom:1px solid rgba(255,255,255,.10);
-  }
-  .nav{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:14px 0;
-  }
-  .brand{display:flex; align-items:center; gap:12px; font-weight:900; letter-spacing:.2px}
-  .brandTitle{font-size:15px; line-height:1.1;}
-  .brandSub{font-size:12px; color:var(--muted); font-weight:800; letter-spacing:.2px}
+    /* Header */
+    header{
+      position:sticky;top:0;z-index:10;
+      background:rgba(7,8,10,.75);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
 
-  /* Logo image container (uses YOUR logo now) */
-  .brandLogo{
-    height:40px; width:auto;
-    filter: drop-shadow(0 10px 22px rgba(0,0,0,.55));
-  }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 0;
+    }
 
-  .navlinks{
-    display:flex; align-items:center; gap:18px;
-    font-weight:700; color:var(--muted);
-  }
-  .navlinks a{padding:8px 10px; border-radius:10px}
-  .navlinks a:hover{
-    background:rgba(255,255,255,.04);
-    color:var(--text);
-    box-shadow: 0 0 0 1px rgba(255,255,255,.08) inset;
-  }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
 
-  .actions{display:flex; align-items:center; gap:10px}
+    .brandLogo{
+      height:42px;
+      width:auto;
+      filter:drop-shadow(0 10px 22px rgba(0,0,0,.6));
+    }
 
-  /* Buttons */
-  .btn{
-    display:inline-flex; align-items:center; justify-content:center; gap:10px;
-    padding:10px 14px;
-    border-radius:12px;
-    border:1px solid rgba(255,255,255,.14);
-    background: rgba(255,255,255,.04);
-    color:var(--text);
-    font-weight:800;
-    cursor:pointer;
-    transition: transform .08s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
-    white-space:nowrap;
-  }
-  .btn:hover{
-    background: rgba(255,255,255,.07);
-    border-color: rgba(255,255,255,.20);
-    box-shadow: 0 10px 24px rgba(0,0,0,.25);
-  }
-  .btn:active{transform: translateY(1px)}
+    .brandTitle{font-weight:900;font-size:15px}
+    .brandSub{font-size:12px;color:var(--muted);font-weight:700}
 
-  /* Primary stays ORANGE (per your preference) */
-  .btn.primary{
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    border: 1px solid rgba(255,255,255,.18);
-    color:#161616;
-    box-shadow: 0 14px 34px rgba(255,122,24,.18);
-  }
-  .btn.primary:hover{filter:brightness(1.03)}
-  .btn.small{padding:9px 12px; font-weight:900}
+    .navlinks{
+      display:flex;
+      gap:18px;
+      font-weight:700;
+      color:var(--muted);
+    }
 
-  /* Secondary "blue action" (optional) */
-  .btn.blue{
-    background: linear-gradient(135deg, rgba(31,109,255,.95), rgba(12,63,168,.95));
-    border:1px solid rgba(255,255,255,.16);
-    box-shadow: 0 14px 34px rgba(31,109,255,.16);
-  }
+    .navlinks a:hover{color:#fff}
 
-  /* Hero */
-  .hero{padding:64px 0 26px}
-  .heroGrid{
-    display:grid;
-    grid-template-columns: 1.15fr .85fr;
-    gap:26px;
-    align-items:stretch;
-  }
+    .btn{
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      font-weight:800;
+    }
 
-  .pill{
-    display:inline-flex; align-items:center; gap:8px;
-    border:1px solid rgba(255,255,255,.14);
-    background:rgba(255,255,255,.03);
-    padding:8px 12px; border-radius:999px;
-    color:var(--muted);
-    font-size:13px;
-  }
-  .dot{
-    width:8px; height:8px; border-radius:999px;
-    background: var(--blue);
-    box-shadow:0 0 0 4px rgba(31,109,255,.18);
-  }
+    .btn.primary{
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      color:#161616;
+      border:none;
+      box-shadow:0 14px 30px rgba(255,122,24,.25);
+    }
 
-  .hero h1{
-    margin:14px 0 10px;
-    font-size: clamp(34px, 5vw, 54px);
-    line-height:1.05;
-    letter-spacing:-.9px;
-  }
-  .hero p{
-    margin:0 0 18px;
-    font-size: clamp(16px, 1.4vw, 18px);
-    color: var(--muted);
-    max-width: 62ch;
-  }
-  .heroCtas{display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
+    /* Hero */
+    .hero{padding:70px 0 40px}
 
-  .trust{
-    display:flex; flex-wrap:wrap; gap:10px; margin-top:22px;
-    color:var(--muted); font-weight:700; font-size:13px;
-  }
-  .trust span{
-    border:1px solid rgba(255,255,255,.10);
-    background: rgba(255,255,255,.03);
-    padding:8px 10px;
-    border-radius:999px;
-  }
+    .heroGrid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:28px;
+      align-items:center;
+    }
 
-  /* Right panel */
-  .panel{
-    background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-    border:1px solid rgba(255,255,255,.12);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    overflow:hidden;
-    position:relative;
-  }
-  .panel:before{
-    content:"";
-    position:absolute; inset:-2px;
-    background: radial-gradient(520px 220px at 25% 15%, rgba(31,109,255,.20), transparent 60%);
-    pointer-events:none;
-  }
-  .panelTop{
-    padding:18px 18px 10px;
-    border-bottom:1px solid rgba(255,255,255,.10);
-    display:flex; align-items:center; justify-content:space-between; gap:12px;
-    position:relative;
-  }
-  .panelTop .title{font-weight:900}
-  .badge{
-    display:inline-flex; align-items:center; gap:8px;
-    padding:7px 10px;
-    border-radius:999px;
-    border:1px solid rgba(31,109,255,.30);
-    background: rgba(31,109,255,.12);
-    color: #d9e6ff;
-    font-weight:900;
-    font-size:12px;
-  }
-  .panelBody{padding:16px 18px; position:relative}
-  .miniGrid{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
-  .miniCard{
-    border:1px solid rgba(255,255,255,.10);
-    background: rgba(255,255,255,.03);
-    border-radius: 14px;
-    padding:12px;
-    min-height:86px;
-  }
-  .miniCard strong{display:block; margin-bottom:4px}
-  .miniCard small{color:var(--muted)}
+    .hero img.heroLogo{
+      height:90px;
+      margin-bottom:14px;
+      filter:drop-shadow(0 20px 40px rgba(0,0,0,.7));
+    }
 
-  /* Sections */
-  section{padding:40px 0}
-  .sectionHead{display:flex; align-items:flex-end; justify-content:space-between; gap:14px; margin-bottom:16px}
-  h2{margin:0; font-size: clamp(22px, 2.4vw, 30px); letter-spacing:-.4px}
-  .sub{margin:6px 0 0; color:var(--muted); max-width:70ch}
+    h1{
+      margin:0 0 12px;
+      font-size:clamp(34px,5vw,54px);
+      line-height:1.05;
+    }
 
-  .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
-  .card{
-    border:1px solid rgba(255,255,255,.10);
-    background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.02));
-    border-radius: var(--radius);
-    padding:16px;
-    box-shadow: 0 10px 22px rgba(0,0,0,.24);
-    position:relative;
-    overflow:hidden;
-  }
-  .card:before{
-    content:"";
-    position:absolute;
-    inset:-1px;
-    background: radial-gradient(520px 160px at 15% 0%, rgba(31,109,255,.14), transparent 60%);
-    opacity:.65;
-    pointer-events:none;
-  }
-  .card h3{margin:0 0 8px; font-size:16px; position:relative}
-  .list{margin:10px 0 0; padding:0; list-style:none; color:var(--muted); position:relative}
-  .list li{padding:8px 0; border-top:1px dashed rgba(255,255,255,.10)}
-  .list li:first-child{border-top:none}
-  .tick{color:var(--blue); font-weight:900; margin-right:8px}
+    .hero p{
+      color:var(--muted);
+      max-width:60ch;
+      font-size:18px;
+    }
 
-  /* Steps */
-  .steps{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
-  .stepNum{
-    width:34px; height:34px; border-radius:12px;
-    display:grid; place-items:center;
-    font-weight:900;
-    background: rgba(31,109,255,.16);
-    border:1px solid rgba(31,109,255,.35);
-    color: #d9e6ff;
-    margin-bottom:10px;
-    box-shadow: 0 12px 24px rgba(31,109,255,.10);
-    position:relative;
-  }
+    .heroCtas{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
 
-  /* CTA band */
-  .ctaBand{
-    background: radial-gradient(600px 250px at 20% 10%, rgba(31,109,255,.22), transparent 60%),
-                linear-gradient(135deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-    border:1px solid rgba(255,255,255,.14);
-    border-radius: 22px;
-    padding:22px;
-    box-shadow: var(--shadow);
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:14px;
-    flex-wrap:wrap;
-  }
-  .ctaBand p{margin:6px 0 0; color:var(--muted)}
+    .panel{
+      background:var(--panel);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+    }
 
-  /* Footer */
-  footer{
-    border-top:1px solid rgba(255,255,255,.10);
-    padding:22px 0 30px;
-    color: var(--muted);
-    font-size:14px;
-  }
-  .footGrid{
-    display:grid;
-    grid-template-columns: 1.2fr .8fr;
-    gap:16px;
-    align-items:start;
-  }
-  .footLinks{display:flex; gap:14px; flex-wrap:wrap}
-  .footLinks a{color:var(--muted)}
-  .footLinks a:hover{color:var(--text)}
+    .miniGrid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
 
-  /* Mobile */
-  @media (max-width: 920px){
-    .heroGrid{grid-template-columns: 1fr;}
-    .grid3{grid-template-columns: 1fr}
-    .steps{grid-template-columns: 1fr}
-    .navlinks{display:none}
-  }
-</style>
+    .miniCard{
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px;
+    }
+
+    section{padding:40px 0}
+
+    h2{margin:0 0 10px;font-size:28px}
+    .sub{color:var(--muted);max-width:70ch}
+
+    .grid3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .card{
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:16px;
+      box-shadow:var(--shadow);
+    }
+
+    ul{padding-left:18px;color:var(--muted)}
+
+    footer{
+      border-top:1px solid var(--line);
+      padding:30px 0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    @media(max-width:900px){
+      .heroGrid{grid-template-columns:1fr}
+      .grid3{grid-template-columns:1fr}
+      .navlinks{display:none}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/">
+      <img src="assets/img/sclogo.png" alt="Circuit & Screw logo" class="brandLogo">
+      <div>
+        <div class="brandTitle">Circuit &amp; Screw</div>
+        <div class="brandSub">Property Solutions</div>
+      </div>
+    </a>
+
+    <nav class="navlinks">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a class="btn primary" href="#contact">Request a Quote</a>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="wrap heroGrid">
+    <div>
+      <img src="assets/img/sclogo.png" alt="Circuit & Screw" class="heroLogo">
+      <h1>Smart Technology.<br>Solid Workmanship.</h1>
+      <p>
+        Professional tech installation, low-voltage wiring, and property solutions
+        for homes and small businesses — clean, secure, and done right.
+      </p>
+
+      <div class="heroCtas">
+        <a class="btn primary" href="#contact">Request a Quote</a>
+        <a class="btn" href="tel:+15555555555">Call / Text</a>
+      </div>
+    </div>
+
+    <div class="panel">
+      <strong>Popular Requests</strong>
+      <div class="miniGrid" style="margin-top:14px">
+        <div class="miniCard"><strong>TV Mounting</strong><br><small>Clean cable management</small></div>
+        <div class="miniCard"><strong>Wi-Fi Upgrades</strong><br><small>Reliable coverage</small></div>
+        <div class="miniCard"><strong>Security Cameras</strong><br><small>Professional installs</small></div>
+        <div class="miniCard"><strong>Low-Voltage Wiring</strong><br><small>Labeled & documented</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <h2>Services</h2>
+    <p class="sub">Residential and small-business technology and property solutions.</p>
+
+    <div class="grid3">
+      <div class="card">
+        <h3>Residential</h3>
+        <ul>
+          <li>TV & home theater installs</li>
+          <li>Wi-Fi & mesh networks</li>
+          <li>Smart home devices</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Business / Property</h3>
+        <ul>
+          <li>Low-voltage wiring</li>
+          <li>Cameras & access control</li>
+          <li>Office networks</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Professional Finish</h3>
+        <ul>
+          <li>Clean installs</li>
+          <li>Security-first setup</li>
+          <li>Tested & documented</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="panel">
+      <h2>Ready to upgrade your space?</h2>
+      <p class="sub">Reach out for a fast, clear quote.</p>
+      <div class="heroCtas">
+        <a class="btn primary" href="tel:+15555555555">Call / Text</a>
+        <a class="btn" href="mailto:hello@circuitandscrew.com">Email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    © <span id="year"></span> Circuit &amp; Screw. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
