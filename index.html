@@ -1,573 +1,292 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Circuit & Screw — tech installs, low-voltage wiring, smart home, and property solutions for homes & small businesses." />
-  <title>Circuit &amp; Screw | Tech Installs & Property Solutions</title>
+<style>
+  :root{
+    /* Logo-theme palette */
+    --bg:#07080a;              /* deep black */
+    --bg2:#0c1017;             /* slightly lighter panel */
+    --card:#0f1520;            /* card background */
+    --text:#eaf1ff;            /* near-white with blue tint */
+    --muted:#b3c2dd;           /* cool gray-blue */
+    --line:rgba(255,255,255,.10);
 
-  <!-- Optional: Google Font (safe to remove if you want 100% offline) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    /* Brand blues (match your logo) */
+    --blue:#1f6dff;            /* electric blue */
+    --blue2:#0c3fa8;           /* deep blue */
+    --blueGlow:rgba(31,109,255,.25);
 
-  <style>
-    :root{
-      --bg:#0b0f14;
-      --bg2:#0f1622;
-      --card:#121a26;
-      --text:#e9eef6;
-      --muted:#b7c2d6;
-      --line:rgba(255,255,255,.10);
-      --accent:#ff7a18; /* safety orange */
-      --accent2:#ffb26b;
-      --shadow: 0 12px 30px rgba(0,0,0,.35);
-      --radius: 18px;
-      --max: 1120px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(900px 500px at 15% 10%, rgba(255,122,24,.16), transparent 55%),
-        radial-gradient(700px 450px at 90% 25%, rgba(80,140,255,.14), transparent 55%),
-        linear-gradient(180deg, var(--bg), #070a0f 70%);
-      line-height:1.55;
-    }
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.03);
-      padding:8px 12px; border-radius:999px;
-      color:var(--muted);
-      font-size:13px;
-    }
-    .dot{width:8px; height:8px; border-radius:999px; background:var(--accent); box-shadow:0 0 0 4px rgba(255,122,24,.15)}
-    /* Header */
-    header{
-      position:sticky; top:0; z-index:10;
-      backdrop-filter: blur(10px);
-      background: rgba(11,15,20,.65);
-      border-bottom:1px solid var(--line);
-    }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0;
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px;
-      font-weight:800; letter-spacing:.2px;
-    }
-    .logo{
-      width:36px; height:36px; border-radius:12px;
-      background:
-        radial-gradient(12px 12px at 30% 30%, rgba(255,255,255,.35), transparent 60%),
-        linear-gradient(135deg, rgba(255,122,24,.95), rgba(255,178,107,.95));
-      box-shadow: 0 10px 22px rgba(255,122,24,.18);
-      display:grid; place-items:center;
-      border:1px solid rgba(255,255,255,.14);
-    }
-    .logo svg{opacity:.95}
-    .navlinks{
-      display:flex; align-items:center; gap:18px;
-      font-weight:600;
-      color:var(--muted);
-    }
-    .navlinks a{padding:8px 10px; border-radius:10px}
-    .navlinks a:hover{background:rgba(255,255,255,.04); color:var(--text)}
-    .actions{display:flex; align-items:center; gap:10px}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:10px 14px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      color:var(--text);
-      font-weight:700;
-      cursor:pointer;
-      transition: transform .08s ease, background .15s ease, border-color .15s ease;
-      white-space:nowrap;
-    }
-    .btn:hover{background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.18)}
-    .btn:active{transform: translateY(1px)}
-    .btn.primary{
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      border: 1px solid rgba(255,255,255,.18);
-      color:#141414;
-      box-shadow: 0 14px 35px rgba(255,122,24,.22);
-    }
-    .btn.primary:hover{filter:brightness(1.03)}
-    .btn.small{padding:9px 12px; font-weight:800}
-    /* Hero */
-    .hero{padding:64px 0 26px}
-    .heroGrid{
-      display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:26px;
-      align-items:stretch;
-    }
-    .hero h1{
-      margin:14px 0 10px;
-      font-size: clamp(34px, 5vw, 54px);
-      line-height:1.05;
-      letter-spacing:-.9px;
-    }
-    .hero p{
-      margin:0 0 18px;
-      font-size: clamp(16px, 1.4vw, 18px);
-      color: var(--muted);
-      max-width: 60ch;
-    }
-    .heroCtas{display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
-    .trust{
-      display:flex; flex-wrap:wrap;
-      gap:10px;
-      margin-top:22px;
-      color:var(--muted);
-      font-weight:600;
-      font-size:13px;
-    }
-    .trust span{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      padding:8px 10px;
-      border-radius:999px;
-    }
-    .panel{
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    .panelTop{
-      padding:18px 18px 10px;
-      border-bottom:1px solid var(--line);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-    }
-    .panelTop .title{font-weight:800}
-    .panelBody{padding:16px 18px}
-    .miniGrid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-    }
-    .miniCard{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      border-radius: 14px;
-      padding:12px;
-      min-height:86px;
-    }
-    .miniCard strong{display:block; margin-bottom:4px}
-    .miniCard small{color:var(--muted)}
-    .badge{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:7px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.04);
-      color: var(--muted);
-      font-weight:700;
-      font-size:12px;
-    }
-    /* Sections */
-    section{padding:40px 0}
-    .sectionHead{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
-      margin-bottom:16px;
-    }
-    h2{
-      margin:0;
-      font-size: clamp(22px, 2.4vw, 30px);
-      letter-spacing:-.4px;
-    }
-    .sub{margin:6px 0 0; color:var(--muted); max-width:70ch}
-    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
-    .card{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-      border-radius: var(--radius);
-      padding:16px;
-      box-shadow: 0 10px 22px rgba(0,0,0,.18);
-    }
-    .card h3{margin:0 0 8px; font-size:16px}
-    .list{margin:10px 0 0; padding:0; list-style:none; color:var(--muted)}
-    .list li{padding:8px 0; border-top:1px dashed rgba(255,255,255,.10)}
-    .list li:first-child{border-top:none}
-    .tick{color:var(--accent); font-weight:900; margin-right:8px}
-    /* How it works */
-    .steps{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
-    .stepNum{
-      width:34px; height:34px; border-radius:12px;
-      display:grid; place-items:center;
-      font-weight:900;
-      background: rgba(255,122,24,.18);
-      border:1px solid rgba(255,122,24,.35);
-      color: var(--accent2);
-      margin-bottom:10px;
-    }
-    /* CTA band */
-    .ctaBand{
-      background: linear-gradient(135deg, rgba(255,122,24,.22), rgba(255,255,255,.03));
-      border:1px solid rgba(255,255,255,.14);
-      border-radius: 22px;
-      padding:22px;
-      box-shadow: var(--shadow);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-    .ctaBand p{margin:6px 0 0; color:var(--muted)}
-    /* Footer */
-    footer{
-      border-top:1px solid var(--line);
-      padding:22px 0 30px;
-      color: var(--muted);
-      font-size:14px;
-    }
-    .footGrid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:16px;
-      align-items:start;
-    }
-    .footLinks{display:flex; gap:14px; flex-wrap:wrap}
-    .footLinks a{color:var(--muted)}
-    .footLinks a:hover{color:var(--text)}
-    /* Mobile */
-    @media (max-width: 920px){
-      .heroGrid{grid-template-columns: 1fr; }
-      .grid3{grid-template-columns: 1fr}
-      .steps{grid-template-columns: 1fr}
-      .navlinks{display:none}
-    }
-  </style>
-</head>
+    /* Metallic accent */
+    --steel:#9aa6b8;
+    --steel2:#5f6b7a;
 
-<body>
-  <header>
-    <div class="wrap">
-      <div class="nav">
-        <a class="brand" href="#top" aria-label="Circuit & Screw home">
-          <div class="logo" aria-hidden="true">
-            <!-- simple C&S glyph -->
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <path d="M7.5 8.8c.7-2.2 2.6-3.8 5.1-3.8 2.9 0 5.3 2.1 5.3 4.7 0 2.7-2.2 4-4.7 4.6-2.3.6-3.7 1.4-3.7 3.2 0 1.6 1.5 3 3.7 3 2.1 0 3.6-1.1 4.2-2.6" stroke="rgba(0,0,0,.8)" stroke-width="2.2" stroke-linecap="round"/>
-              <path d="M4.5 12h3" stroke="rgba(0,0,0,.8)" stroke-width="2.2" stroke-linecap="round"/>
-              <path d="M16.5 12h3" stroke="rgba(0,0,0,.8)" stroke-width="2.2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div>
-            <div style="font-size:15px; line-height:1.1;">Circuit &amp; Screw</div>
-            <div style="font-size:12px; color:var(--muted); font-weight:700;">Tech Installs • Property Solutions</div>
-          </div>
-        </a>
+    /* Keep your orange buttons */
+    --accent:#ff7a18;
+    --accent2:#ffb26b;
 
-        <nav class="navlinks" aria-label="Primary navigation">
-          <a href="#services">Services</a>
-          <a href="#why">Why Us</a>
-          <a href="#process">Process</a>
-          <a href="#contact">Contact</a>
-        </nav>
+    --shadow: 0 14px 36px rgba(0,0,0,.45);
+    --radius: 18px;
+    --max: 1120px;
+  }
 
-        <div class="actions">
-          <!-- TODO: replace with your real phone -->
-          <a class="btn small" href="tel:+15555555555" title="Call or text">Call/Text</a>
-          <a class="btn primary" href="#contact">Request a Quote</a>
-        </div>
-      </div>
-    </div>
-  </header>
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    color:var(--text);
+    background:
+      radial-gradient(900px 520px at 18% 12%, rgba(31,109,255,.18), transparent 55%),
+      radial-gradient(650px 480px at 90% 30%, rgba(180,180,180,.08), transparent 58%),
+      linear-gradient(180deg, var(--bg), #050608 70%);
+    line-height:1.55;
+  }
 
-  <main id="top">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="wrap">
-        <div class="heroGrid">
-          <div>
-            <span class="pill"><span class="dot" aria-hidden="true"></span> Serving homes &amp; small businesses</span>
-            <h1>Smart Technology.<br/>Solid Workmanship.</h1>
-            <p>
-              Professional tech installation, low-voltage wiring, smart home setup, and property solutions—
-              done clean, tested, and documented. No shortcuts. No clutter.
-            </p>
-            <div class="heroCtas">
-              <a class="btn primary" href="#contact">Request a Quote</a>
-              <!-- TODO: replace phone + email -->
-              <a class="btn" href="tel:+15555555555">Call/Text</a>
-              <a class="btn" href="mailto:hello@circuitandscrew.com">Email</a>
-            </div>
+  a{color:inherit; text-decoration:none}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
 
-            <div class="trust" aria-label="Trust indicators">
-              <span>✅ Clean installs</span>
-              <span>✅ IT-grade wiring</span>
-              <span>✅ Security-first</span>
-              <span>✅ Clear communication</span>
-            </div>
-          </div>
+  /* Header */
+  header{
+    position:sticky; top:0; z-index:10;
+    backdrop-filter: blur(10px);
+    background: rgba(7,8,10,.72);
+    border-bottom:1px solid rgba(255,255,255,.10);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 0;
+  }
+  .brand{display:flex; align-items:center; gap:12px; font-weight:900; letter-spacing:.2px}
+  .brandTitle{font-size:15px; line-height:1.1;}
+  .brandSub{font-size:12px; color:var(--muted); font-weight:800; letter-spacing:.2px}
 
-          <aside class="panel" aria-label="Quick service overview">
-            <div class="panelTop">
-              <div class="title">Popular Requests</div>
-              <span class="badge">Fast • Professional • Reliable</span>
-            </div>
-            <div class="panelBody">
-              <div class="miniGrid">
-                <div class="miniCard">
-                  <strong>TV Mounting</strong>
-                  <small>Clean cable management, soundbars, concealment options.</small>
-                </div>
-                <div class="miniCard">
-                  <strong>Wi-Fi &amp; Network</strong>
-                  <small>Better coverage, wired backhaul, secure setup.</small>
-                </div>
-                <div class="miniCard">
-                  <strong>Cameras</strong>
-                  <small>Placement, wiring, NVR/cloud, clean installs.</small>
-                </div>
-                <div class="miniCard">
-                  <strong>Low-Voltage Wiring</strong>
-                  <small>Structured cabling, labeling, documentation.</small>
-                </div>
-              </div>
+  /* Logo image container (uses YOUR logo now) */
+  .brandLogo{
+    height:40px; width:auto;
+    filter: drop-shadow(0 10px 22px rgba(0,0,0,.55));
+  }
 
-              <div style="margin-top:14px; border-top:1px solid var(--line); padding-top:14px; color:var(--muted); font-weight:600;">
-                <div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;">
-                  <span>🧰 Residential &amp; Commercial</span>
-                  <span>🧾 Clear quotes</span>
-                  <span>🧪 Tested results</span>
-                </div>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
+  .navlinks{
+    display:flex; align-items:center; gap:18px;
+    font-weight:700; color:var(--muted);
+  }
+  .navlinks a{padding:8px 10px; border-radius:10px}
+  .navlinks a:hover{
+    background:rgba(255,255,255,.04);
+    color:var(--text);
+    box-shadow: 0 0 0 1px rgba(255,255,255,.08) inset;
+  }
 
-    <!-- SERVICES -->
-    <section id="services">
-      <div class="wrap">
-        <div class="sectionHead">
-          <div>
-            <h2>Services</h2>
-            <p class="sub">From one device install to full-property upgrades—choose what you need, and we’ll make it clean and reliable.</p>
-          </div>
-        </div>
+  .actions{display:flex; align-items:center; gap:10px}
 
-        <div class="grid3">
-          <div class="card">
-            <h3>Residential</h3>
-            <ul class="list">
-              <li><span class="tick">✓</span>TV mounting &amp; home theater</li>
-              <li><span class="tick">✓</span>Wi-Fi upgrades &amp; mesh setup</li>
-              <li><span class="tick">✓</span>Smart home devices (locks, doorbells, sensors)</li>
-              <li><span class="tick">✓</span>Cable concealment &amp; clean cable management</li>
-            </ul>
-          </div>
+  /* Buttons */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:10px;
+    padding:10px 14px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.14);
+    background: rgba(255,255,255,.04);
+    color:var(--text);
+    font-weight:800;
+    cursor:pointer;
+    transition: transform .08s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{
+    background: rgba(255,255,255,.07);
+    border-color: rgba(255,255,255,.20);
+    box-shadow: 0 10px 24px rgba(0,0,0,.25);
+  }
+  .btn:active{transform: translateY(1px)}
 
-          <div class="card">
-            <h3>Business / Property</h3>
-            <ul class="list">
-              <li><span class="tick">✓</span>Low-voltage wiring &amp; structured cabling</li>
-              <li><span class="tick">✓</span>Cameras &amp; access control installs</li>
-              <li><span class="tick">✓</span>Office network setup (switches, APs)</li>
-              <li><span class="tick">✓</span>Device setup &amp; support (PC/Mac/iPad)</li>
-            </ul>
-          </div>
+  /* Primary stays ORANGE (per your preference) */
+  .btn.primary{
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    border: 1px solid rgba(255,255,255,.18);
+    color:#161616;
+    box-shadow: 0 14px 34px rgba(255,122,24,.18);
+  }
+  .btn.primary:hover{filter:brightness(1.03)}
+  .btn.small{padding:9px 12px; font-weight:900}
 
-          <div class="card">
-            <h3>Premium Finish</h3>
-            <ul class="list">
-              <li><span class="tick">✓</span>Labeling &amp; documentation</li>
-              <li><span class="tick">✓</span>Security-first configuration</li>
-              <li><span class="tick">✓</span>Neat, code-aware routing</li>
-              <li><span class="tick">✓</span>Post-install testing &amp; walkthrough</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+  /* Secondary "blue action" (optional) */
+  .btn.blue{
+    background: linear-gradient(135deg, rgba(31,109,255,.95), rgba(12,63,168,.95));
+    border:1px solid rgba(255,255,255,.16);
+    box-shadow: 0 14px 34px rgba(31,109,255,.16);
+  }
 
-    <!-- WHY US -->
-    <section id="why">
-      <div class="wrap">
-        <div class="sectionHead">
-          <div>
-            <h2>Why Circuit &amp; Screw</h2>
-            <p class="sub">Not “just a handyman.” We bring IT-level standards to installs—clean, secure, and done right.</p>
-          </div>
-        </div>
+  /* Hero */
+  .hero{padding:64px 0 26px}
+  .heroGrid{
+    display:grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap:26px;
+    align-items:stretch;
+  }
 
-        <div class="grid3">
-          <div class="card">
-            <h3>IT-grade work</h3>
-            <p style="margin:0; color:var(--muted);">Measured, planned, and tested—so it works today and stays reliable tomorrow.</p>
-          </div>
-          <div class="card">
-            <h3>Clean installs</h3>
-            <p style="margin:0; color:var(--muted);">Neat routing, tidy finish, and cable management that looks intentional—not improvised.</p>
-          </div>
-          <div class="card">
-            <h3>Security-first</h3>
-            <p style="margin:0; color:var(--muted);">We avoid default passwords, risky setups, and sloppy networks.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  .pill{
+    display:inline-flex; align-items:center; gap:8px;
+    border:1px solid rgba(255,255,255,.14);
+    background:rgba(255,255,255,.03);
+    padding:8px 12px; border-radius:999px;
+    color:var(--muted);
+    font-size:13px;
+  }
+  .dot{
+    width:8px; height:8px; border-radius:999px;
+    background: var(--blue);
+    box-shadow:0 0 0 4px rgba(31,109,255,.18);
+  }
 
-    <!-- PROCESS -->
-    <section id="process">
-      <div class="wrap">
-        <div class="sectionHead">
-          <div>
-            <h2>How it works</h2>
-            <p class="sub">Fast scheduling, clear pricing, professional results.</p>
-          </div>
-        </div>
+  .hero h1{
+    margin:14px 0 10px;
+    font-size: clamp(34px, 5vw, 54px);
+    line-height:1.05;
+    letter-spacing:-.9px;
+  }
+  .hero p{
+    margin:0 0 18px;
+    font-size: clamp(16px, 1.4vw, 18px);
+    color: var(--muted);
+    max-width: 62ch;
+  }
+  .heroCtas{display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
 
-        <div class="steps">
-          <div class="card">
-            <div class="stepNum">1</div>
-            <h3>Contact</h3>
-            <p style="margin:0; color:var(--muted);">Tell us what you need. Photos of the area help us quote accurately.</p>
-          </div>
-          <div class="card">
-            <div class="stepNum">2</div>
-            <h3>Plan</h3>
-            <p style="margin:0; color:var(--muted);">We recommend the right solution—not the most expensive one.</p>
-          </div>
-          <div class="card">
-            <div class="stepNum">3</div>
-            <h3>Install</h3>
-            <p style="margin:0; color:var(--muted);">Clean install, tested performance, and a quick walkthrough before we leave.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+  .trust{
+    display:flex; flex-wrap:wrap; gap:10px; margin-top:22px;
+    color:var(--muted); font-weight:700; font-size:13px;
+  }
+  .trust span{
+    border:1px solid rgba(255,255,255,.10);
+    background: rgba(255,255,255,.03);
+    padding:8px 10px;
+    border-radius:999px;
+  }
 
-    <!-- CTA / CONTACT -->
-    <section id="contact">
-      <div class="wrap">
-        <div class="ctaBand">
-          <div>
-            <h2 style="margin:0;">Ready to upgrade your space?</h2>
-            <p>Send details and we’ll respond with next steps and a clear quote.</p>
-          </div>
-          <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <!-- TODO: replace phone and email; form below is mailto-based -->
-            <a class="btn primary" href="tel:+15555555555">Call/Text Now</a>
-            <a class="btn" href="mailto:hello@circuitandscrew.com">Email Us</a>
-          </div>
-        </div>
+  /* Right panel */
+  .panel{
+    background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+    border:1px solid rgba(255,255,255,.12);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow:hidden;
+    position:relative;
+  }
+  .panel:before{
+    content:"";
+    position:absolute; inset:-2px;
+    background: radial-gradient(520px 220px at 25% 15%, rgba(31,109,255,.20), transparent 60%);
+    pointer-events:none;
+  }
+  .panelTop{
+    padding:18px 18px 10px;
+    border-bottom:1px solid rgba(255,255,255,.10);
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    position:relative;
+  }
+  .panelTop .title{font-weight:900}
+  .badge{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:7px 10px;
+    border-radius:999px;
+    border:1px solid rgba(31,109,255,.30);
+    background: rgba(31,109,255,.12);
+    color: #d9e6ff;
+    font-weight:900;
+    font-size:12px;
+  }
+  .panelBody{padding:16px 18px; position:relative}
+  .miniGrid{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+  .miniCard{
+    border:1px solid rgba(255,255,255,.10);
+    background: rgba(255,255,255,.03);
+    border-radius: 14px;
+    padding:12px;
+    min-height:86px;
+  }
+  .miniCard strong{display:block; margin-bottom:4px}
+  .miniCard small{color:var(--muted)}
 
-        <div style="height:14px"></div>
+  /* Sections */
+  section{padding:40px 0}
+  .sectionHead{display:flex; align-items:flex-end; justify-content:space-between; gap:14px; margin-bottom:16px}
+  h2{margin:0; font-size: clamp(22px, 2.4vw, 30px); letter-spacing:-.4px}
+  .sub{margin:6px 0 0; color:var(--muted); max-width:70ch}
 
-        <div class="grid3" style="grid-template-columns: 1.2fr .8fr .8fr;">
-          <div class="card">
-            <h3>Request a Quote</h3>
-            <p style="margin:0 0 12px; color:var(--muted);">
-              Fill this out and we’ll get back to you. (This uses your email app; no server needed.)
-            </p>
+  .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
+  .card{
+    border:1px solid rgba(255,255,255,.10);
+    background: linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.02));
+    border-radius: var(--radius);
+    padding:16px;
+    box-shadow: 0 10px 22px rgba(0,0,0,.24);
+    position:relative;
+    overflow:hidden;
+  }
+  .card:before{
+    content:"";
+    position:absolute;
+    inset:-1px;
+    background: radial-gradient(520px 160px at 15% 0%, rgba(31,109,255,.14), transparent 60%);
+    opacity:.65;
+    pointer-events:none;
+  }
+  .card h3{margin:0 0 8px; font-size:16px; position:relative}
+  .list{margin:10px 0 0; padding:0; list-style:none; color:var(--muted); position:relative}
+  .list li{padding:8px 0; border-top:1px dashed rgba(255,255,255,.10)}
+  .list li:first-child{border-top:none}
+  .tick{color:var(--blue); font-weight:900; margin-right:8px}
 
-            <form onsubmit="return sendEmail(event)">
-              <div style="display:grid; gap:10px;">
-                <input required name="name" placeholder="Name" style="padding:12px 12px; border-radius:12px; border:1px solid var(--line); background:rgba(255,255,255,.03); color:var(--text);">
-                <input required name="contact" placeholder="Phone or Email" style="padding:12px 12px; border-radius:12px; border:1px solid var(--line); background:rgba(255,255,255,.03); color:var(--text);">
-                <input name="address" placeholder="City / Area (optional)" style="padding:12px 12px; border-radius:12px; border:1px solid var(--line); background:rgba(255,255,255,.03); color:var(--text);">
-                <textarea required name="details" rows="5" placeholder="What do you need done? (include device models, # of rooms, photos info, etc.)"
-                  style="padding:12px 12px; border-radius:12px; border:1px solid var(--line); background:rgba(255,255,255,.03); color:var(--text); resize:vertical;"></textarea>
+  /* Steps */
+  .steps{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px}
+  .stepNum{
+    width:34px; height:34px; border-radius:12px;
+    display:grid; place-items:center;
+    font-weight:900;
+    background: rgba(31,109,255,.16);
+    border:1px solid rgba(31,109,255,.35);
+    color: #d9e6ff;
+    margin-bottom:10px;
+    box-shadow: 0 12px 24px rgba(31,109,255,.10);
+    position:relative;
+  }
 
-                <button class="btn primary" type="submit">Send Quote Request</button>
-                <small style="color:var(--muted);">
-                  Tip: Add photos by describing them here, or email us directly with attachments.
-                </small>
-              </div>
-            </form>
-          </div>
+  /* CTA band */
+  .ctaBand{
+    background: radial-gradient(600px 250px at 20% 10%, rgba(31,109,255,.22), transparent 60%),
+                linear-gradient(135deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+    border:1px solid rgba(255,255,255,.14);
+    border-radius: 22px;
+    padding:22px;
+    box-shadow: var(--shadow);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .ctaBand p{margin:6px 0 0; color:var(--muted)}
 
-          <div class="card">
-            <h3>Contact</h3>
-            <p style="margin:0; color:var(--muted);">Choose the fastest option.</p>
-            <div style="margin-top:12px; display:grid; gap:10px;">
-              <a class="btn" href="tel:+15555555555">📞 Call/Text: (555) 555-5555</a>
-              <a class="btn" href="mailto:hello@circuitandscrew.com">✉️ hello@circuitandscrew.com</a>
-              <a class="btn" href="#services">🧰 View Services</a>
-            </div>
-          </div>
+  /* Footer */
+  footer{
+    border-top:1px solid rgba(255,255,255,.10);
+    padding:22px 0 30px;
+    color: var(--muted);
+    font-size:14px;
+  }
+  .footGrid{
+    display:grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap:16px;
+    align-items:start;
+  }
+  .footLinks{display:flex; gap:14px; flex-wrap:wrap}
+  .footLinks a{color:var(--muted)}
+  .footLinks a:hover{color:var(--text)}
 
-          <div class="card">
-            <h3>Service Area</h3>
-            <p style="margin:0; color:var(--muted);">
-              Add your service area here (example: Missouri City • Sugar Land • Richmond • Pearland • Houston).
-            </p>
-            <div style="margin-top:12px; border-top:1px dashed rgba(255,255,255,.12); padding-top:12px; color:var(--muted);">
-              <div>✅ Residential &amp; Small Business</div>
-              <div>✅ Low-voltage &amp; installs</div>
-              <div>✅ Clean finish, tested results</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      <div class="footGrid">
-        <div>
-          <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
-            <div class="logo" aria-hidden="true" style="width:32px;height:32px;border-radius:12px;"></div>
-            <div style="font-weight:900;">Circuit &amp; Screw</div>
-          </div>
-          <div>© <span id="y"></span> Circuit &amp; Screw. All rights reserved.</div>
-        </div>
-        <div class="footLinks" aria-label="Footer links">
-          <a href="#services">Services</a>
-          <a href="#why">Why Us</a>
-          <a href="#process">Process</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Footer year
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    // Mailto form (no backend needed)
-    function sendEmail(e){
-      e.preventDefault();
-      const form = e.target;
-      const name = form.name.value.trim();
-      const contact = form.contact.value.trim();
-      const address = (form.address.value || '').trim();
-      const details = form.details.value.trim();
-
-      const to = "hello@circuitandscrew.com"; // TODO: change if needed
-      const subject = encodeURIComponent("Quote Request — Circuit & Screw");
-      const body = encodeURIComponent(
-        `Name: ${name}\n` +
-        `Contact: ${contact}\n` +
-        (address ? `Area: ${address}\n` : ``) +
-        `\nProject Details:\n${details}\n\n` +
-        `Sent from circuitandscrew.com`
-      );
-
-      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
-      return false;
-    }
-  </script>
-</body>
-</html>
+  /* Mobile */
+  @media (max-width: 920px){
+    .heroGrid{grid-template-columns: 1fr;}
+    .grid3{grid-template-columns: 1fr}
+    .steps{grid-template-columns: 1fr}
+    .navlinks{display:none}
+  }
+</style>
