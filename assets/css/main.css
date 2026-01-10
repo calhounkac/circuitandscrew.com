@@ -73,32 +73,37 @@ img{ max-width:100%; display:block; }
   padding: 14px 0;
 }
 
+/* ✅ Mobile “badge” layout: logo stacked above name */
 .brand{
   display:flex;
-  align-items:center;
-  gap: 14px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   min-width: 0;
+
+  /* Helps it feel like a centered badge on phones */
+  text-align: center;
 }
 
-/* ✅ Larger logo (mobile) + subtle outline/glow */
+/* ✅ HUGE logo on phones + subtle outline/glow */
 .brand-logo{
-  width: 92px;       /* mobile size */
+  width: 168px;          /* badge size on mobile */
   height: auto;
-  max-height: 92px;
+  max-height: 168px;
   object-fit: contain;
 
-  /* subtle outline + glow */
   filter:
-    drop-shadow(0 0 1px var(--logo-outline))
-    drop-shadow(0 0 8px var(--logo-blue-glow))
-    drop-shadow(0 0 10px var(--logo-yellow-glow));
+    drop-shadow(0 0 1.5px var(--logo-outline))
+    drop-shadow(0 0 12px var(--logo-blue-glow))
+    drop-shadow(0 0 14px var(--logo-yellow-glow));
 }
 
 .brand-text{ min-width: 0; }
 .brand-name{
-  font-weight: 900;
+  font-weight: 950;
   letter-spacing: .2px;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 1.1;
 }
 .brand-sub{
@@ -169,7 +174,7 @@ img{ max-width:100%; display:block; }
   font-weight: 850;
   letter-spacing: .2px;
   cursor: pointer;
-  transform: translateZ(0); /* smoother */
+  transform: translateZ(0);
 }
 
 .btn-primary{
@@ -185,20 +190,14 @@ img{ max-width:100%; display:block; }
     0 10px 26px rgba(12,65,177,.20),
     0 0 0 1px rgba(254,229,1,.12);
 }
-.btn-primary:hover{
-  filter: brightness(1.06);
-}
-.btn-primary:active{
-  transform: scale(.985);
-}
+.btn-primary:hover{ filter: brightness(1.06); }
+.btn-primary:active{ transform: scale(.985); }
 
 .btn-outline{
   background: transparent;
   color: var(--text);
 }
-.btn-outline:hover{
-  background: rgba(255,255,255,.05);
-}
+.btn-outline:hover{ background: rgba(255,255,255,.05); }
 
 .btn-ghost{
   background: rgba(255,255,255,.04);
@@ -216,12 +215,9 @@ img{ max-width:100%; display:block; }
 }
 
 @media (max-width: 819px){
-  .btn-primary{
-    animation: csPulse 2.35s ease-in-out infinite;
-  }
+  .btn-primary{ animation: csPulse 2.35s ease-in-out infinite; }
 }
 
-/* Respect reduced motion */
 @media (prefers-reduced-motion: reduce){
   .btn-primary{ animation: none !important; }
   *{ scroll-behavior: auto !important; }
@@ -231,9 +227,7 @@ img{ max-width:100%; display:block; }
    Hero
    ========================= */
 
-.hero{
-  padding: 26px 0 18px;
-}
+.hero{ padding: 26px 0 18px; }
 
 .hero-inner{
   display:grid;
@@ -241,9 +235,7 @@ img{ max-width:100%; display:block; }
   gap: 16px;
 }
 
-.hero-copy{
-  padding: 18px 0 6px;
-}
+.hero-copy{ padding: 18px 0 6px; }
 
 .hero h1{
   font-size: clamp(28px, 4.5vw, 44px);
@@ -290,16 +282,8 @@ img{ max-width:100%; display:block; }
   padding: 16px;
 }
 
-.hero-card h2{
-  font-size: 16px;
-  margin: 0 0 10px;
-}
-
-.hero-card ul{
-  margin: 0 0 12px;
-  padding-left: 18px;
-  color: var(--muted);
-}
+.hero-card h2{ font-size: 16px; margin: 0 0 10px; }
+.hero-card ul{ margin: 0 0 12px; padding-left: 18px; color: var(--muted); }
 
 .fineprint{
   margin: 10px 0 0;
@@ -311,9 +295,7 @@ img{ max-width:100%; display:block; }
    Sections
    ========================= */
 
-.section{
-  padding: 26px 0;
-}
+.section{ padding: 26px 0; }
 
 .section-alt{
   background: linear-gradient(180deg, transparent, rgba(255,255,255,.03), transparent);
@@ -321,17 +303,9 @@ img{ max-width:100%; display:block; }
   border-bottom: 1px solid var(--border);
 }
 
-.section-head{
-  margin-bottom: 14px;
-}
-.section-head h2{
-  margin: 0 0 6px;
-  font-size: 22px;
-}
-.section-head p{
-  margin: 0;
-  color: var(--muted);
-}
+.section-head{ margin-bottom: 14px; }
+.section-head h2{ margin: 0 0 6px; font-size: 22px; }
+.section-head p{ margin: 0; color: var(--muted); }
 
 /* =========================
    Cards Grid
@@ -355,14 +329,8 @@ img{ max-width:100%; display:block; }
   background: rgba(255,255,255,.05);
   border-color: rgba(12,65,177,.35);
 }
-.card h3{
-  margin: 0 0 8px;
-  font-size: 16px;
-}
-.card p{
-  margin: 0;
-  color: var(--muted);
-}
+.card h3{ margin: 0 0 8px; font-size: 16px; }
+.card p{ margin: 0; color: var(--muted); }
 
 /* =========================
    Two Column Panels
@@ -388,8 +356,6 @@ img{ max-width:100%; display:block; }
   padding-left: 18px;
   color: var(--muted);
 }
-
-.muted{ color: var(--muted); }
 
 .contact-grid{
   display:grid;
@@ -439,15 +405,15 @@ img{ max-width:100%; display:block; }
   gap: 12px;
 }
 
-/* ✅ Bigger footer logo + same glow/outline */
+/* Footer logo stays clean and strong */
 .footer-logo{
   width: 72px;
   height: auto;
   object-fit: contain;
   filter:
-    drop-shadow(0 0 1px var(--logo-outline))
-    drop-shadow(0 0 8px var(--logo-blue-glow))
-    drop-shadow(0 0 10px var(--logo-yellow-glow));
+    drop-shadow(0 0 1.5px var(--logo-outline))
+    drop-shadow(0 0 10px var(--logo-blue-glow))
+    drop-shadow(0 0 12px var(--logo-yellow-glow));
 }
 
 .footer-name{ font-weight: 900; }
@@ -475,37 +441,34 @@ img{ max-width:100%; display:block; }
   .menu-btn{ display:none; }
   .mobile-nav{ display:none !important; }
 
+  /* Switch back to classic desktop header layout */
+  .brand{
+    flex-direction: row;   /* logo left, text right */
+    align-items: center;
+    text-align: left;
+    gap: 18px;
+  }
+
+  /* Logo still large, but not “stacked badge” */
+  .brand-logo{
+    width: 158px;          /* desktop emphasis */
+    max-height: 158px;
+  }
+
   .hero-inner{
     grid-template-columns: 1.2fr .8fr;
     align-items: start;
     gap: 18px;
   }
 
-  .hero-actions{
-    flex-direction: row;
-  }
-
-  .grid{
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .two-col{
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .contact-grid{
-    grid-template-columns: 1fr 1fr;
-  }
+  .hero-actions{ flex-direction: row; }
+  .grid{ grid-template-columns: repeat(3, 1fr); }
+  .two-col{ grid-template-columns: 1fr 1fr; }
+  .contact-grid{ grid-template-columns: 1fr 1fr; }
 
   .footer-inner{
     flex-direction: row;
     align-items:center;
-  }
-
-  /* ✅ Scale logo even larger on desktop only */
-  .brand-logo{
-    width: 132px;
-    max-height: 132px;
   }
 }
 
